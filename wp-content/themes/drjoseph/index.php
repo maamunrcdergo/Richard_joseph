@@ -4,22 +4,15 @@
 		<!-- Required meta tags always come first -->
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title><?php bloginfo('name'); ?></title>
+		<meta http-equiv="x-ua-compatible" content="ie=edge">		
 		<link rel="shortcut icon" href="<?php echo esc_url(get_template_directory_uri());?>/imgaes/favicon.ico" type="image/png">
 
-		
-		<!-- Site CSS -->
-		<link rel="stylesheet" type="text/css" href="<?php echo esc_url(get_template_directory_uri());?>/css/style.css"/>
-		
-		<!-- FONT CSS Library -->
-		<link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300' rel='stylesheet' type='text/css'/>
 	<?php wp_head(); ?>	
 	</head>
 	<body <?php body_class(); ?> id="top">
-    <header><!-- Start Header -->
+    <header id="header"><!-- Start Header -->
 		<div class="top_header"><!-- Top Header -->
-			<nav class="navbar navbar-default"><!-- Menu -->
+			<nav class="navbar navbar-default navbar-fixed-top"><!-- Menu -->
 				<div class="container"> 
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_menu" aria-expanded="false">
@@ -29,7 +22,7 @@
                                                     <span class="icon-bar"></span>
 						</button>
 						<a class="navbar-brand os" data-animate="fadeInLeft" onclick="jQuery('html,body').animate({scrollTop:0},'slow');return false;" href=" home_url( '/' )">
-							<img class="img-responsive logo pull-left" src="<?php echo esc_url(DRJOSEPH_THEME_URL);?>/images/logo.png" alt="logo"/>
+							<img class="img-responsive logo pull-left" src="<?php echo DRJOSEPH_THEME_URL;?>/images/logo.png" alt="logo"/>
 							<span class="main_title"><?php bloginfo('name'); ?></span>
 						</a>
 					</div>
@@ -51,7 +44,7 @@
 			<div id="slider_slide" class="carousel slide" data-ride="carousel">
 			  <div class="carousel-inner" role="listbox">
 				<div class="item active">
-				  <img src="<?php echo esc_url(get_template_directory_uri());?>/images/slider.jpg" alt="fs_slide">
+				  <img src="<?php echo DRJOSEPH_THEME_URL;?>/images/slider.jpg" alt="fs_slide">
 					<div class="slider_text">
 						<div class="jumbotron">
 							<h1>Quality vision & Eye care</h1>

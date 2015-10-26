@@ -1,8 +1,12 @@
 <?php 
-define('DRJOSEPH_THEME_URL', get_stylesheet_directory_uri());
-define('DRJOSEPH_THEME_PATH', get_stylesheet_directory());
+define('DRJOSEPH_THEME_URL', get_template_directory_uri());
+define('DRJOSEPH_THEME_PATH', get_template_directory());
+define('DRJOSEPH_THEME_LIBSPATH', DRJOSEPH_THEME_PATH.'/libs');
 define('DRJOSEPH_HOME_URL',  home_url( '/' ));
 
+//Required Files
+require_once DRJOSEPH_THEME_LIBSPATH.'/navwalker.php';
+require_once DRJOSEPH_THEME_LIBSPATH.'/theme-setups.php';
 	
 	function drjosefh_default_function(){
             add_theme_support('title-tag');
@@ -61,16 +65,4 @@ define('DRJOSEPH_HOME_URL',  home_url( '/' ));
             
             
 	}
-        add_action('after_setup_theme','drjosefh_default_function');
-        
-        
-        //Default menu
-        function defauli_main_menu(){
-            echo '<ul class="nav navbar-nav">';
-                echo '<li><a href="'.home_url().'">Home</a></li>';
-            echo '</ul>';
-        }
-        require_once ('navwalker.php');
-        require_once ('navwalker.php');
-        //Default menu End
 ?>
