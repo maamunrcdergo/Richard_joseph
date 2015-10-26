@@ -1,0 +1,66 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 19, 2015, 12:19:05 PM
+    Author     : Anup
+*/
+
+.album-images-container,.album-videos-container{
+    border: 1px dashed #f4f4f4;
+    padding: 15px;
+    margin-bottom: 5px;
+}
+.album-images-container-bottom{
+    text-align: center;
+}
+.album-addnew{
+    min-width: 150px;
+    padding: 25px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.album-img-box{
+    display: inline-block;
+    margin: 15px;
+    width: 150px;
+    height: auto;
+    position: relative;
+    vertical-align: top;
+    overflow: hidden;
+    background: #f4f4f4;;
+    border: 3px solid #f4f4f4;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.album-img-box button{
+    background: none repeat scroll 0 0 #f4f4f4;
+    border: medium none #f4f4f4;
+    color: #999;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: .7;
+    cursor: pointer;
+
+}
+.album-img-box img{
+    width: 100%;
+}
+.album-videos-container-bottom{
+    padding: 5px;
+    text-align: left;
+}
+.album-videos-container-bottom > *{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0px 5px;
+}
+.album-videos-container .album-img-box{
+    height: auto;
+}

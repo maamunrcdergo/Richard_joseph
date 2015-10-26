@@ -1,0 +1,1629 @@
+$main_color:rgba(0, 34, 101, .9);
+$banner_color:#f25959;
+$border_color:#f0f0f0;
+$silver:#C0C0C0;
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+@mixin box-shadow($top, $left, $blur, $size, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow:inset $top $left $blur $size $color;
+        -moz-box-shadow:inset $top $left $blur $size $color;
+        box-shadow:inset $top $left $blur $size $color;
+    } @else {
+        -webkit-box-shadow: $top $left $blur $size $color;
+        -moz-box-shadow: $top $left $blur $size $color;
+        box-shadow: $top $left $blur $size $color;
+    }
+}
+
+/*
+Common Stylesheet All body
+/////////////////////
+*/
+
+
+body{
+	margin:0;
+	padding:0;
+	font-family: 'Raleway', sans-serif;
+	a{
+		text-decoration:none;
+		&:hover{
+			text-decoration:none;
+		}
+	}
+	.heading_title{
+			font-size:26px;
+			line-height:38px;
+			text-align:center;
+			text-transform:uppercase;
+			color:$main_color;
+			margin-top:90px;
+			margin-bottom:10px;
+		}
+	
+	.heading_title_2{
+			font-size:26px;
+			line-height:38px;
+			text-align:center;
+			text-transform:uppercase;
+			color:lighten($main_color,100%);
+			margin-top:80px;
+			margin-bottom:10px;
+		}
+		.sub_heading{
+			font-size: 16px;
+			padding: 0 50px;
+			text-align: center;
+			color:darken($border_color,30%);
+			margin:0;
+		}
+		.line{
+			background: transparent none repeat scroll 0 0;
+			border-bottom: 1px solid $main_color;
+			height: 1px;
+			margin: 0 auto 45px;
+			padding: 5px;
+			position: relative;
+			width: 70px;
+			&:after, &:before{
+				border: medium solid transparent;
+				content: " ";
+				height: 0;
+				left: 50%;
+				pointer-events: none;
+				position: absolute;
+				top: 100%;
+				width: 0;
+				border-top-color:$main_color;
+				border-width: 6px;
+				margin-left: -6px;
+			}
+			&:after{
+				border-top-color: lighten($main_color,100%);
+				border-width: 5px;
+				margin-left: -5px;
+			}
+			&:before{
+				border-top-color:$main_color;
+				border-width: 6px;
+				margin-left: -6px;
+			}
+		}
+		
+		.line_2{
+			background: transparent none repeat scroll 0 0;
+			border-bottom: 1px solid lighten($main_color,100%);
+			height: 1px;
+			margin: 0 auto 45px;
+			padding: 5px;
+			position: relative;
+			width: 70px;
+			&:after, &:before{
+				border: medium solid transparent;
+				content: " ";
+				height: 0;
+				left: 50%;
+				pointer-events: none;
+				position: absolute;
+				top: 100%;
+				width: 0;
+				border-top-color:$main_color;
+				border-width: 6px;
+				margin-left: -6px;
+			}
+			&:after{
+				border-top-color: lighten($main_color,100%);
+				border-width: 6px;
+				margin-left: -6px;
+			}
+			&:before{
+				border-top-color:$main_color;
+				border-width: 6px;
+				margin-left: -6px;
+			}
+		}
+		
+		
+		
+		/*datepicker stylesheet*/
+		.datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-bottom{
+			box-shadow:none;
+			padding:15px;
+			font-family: 'Raleway', sans-serif;
+			color:darken($silver,15%);
+			font-weight:300;
+		}
+		.datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-top{
+			box-shadow:none;
+			padding:15px;
+			font-family: 'Raleway', sans-serif;
+			color:darken($silver,15%);
+			font-weight:300;
+		}
+}
+
+
+/*
+Header Stylesheet
+/////////////////////
+*/
+
+header{
+	.top_header{
+		background:$main_color;
+		@include transition(all 1s);
+		
+		/*
+		manu Stylesheet Start Now
+		/////////////////////
+		*/
+		.navbar-default{
+			background:$main_color;
+			border:0;
+			border-radius:0;
+			margin-bottom:0;
+			@include transition(all .5s);
+			.navbar-brand{
+				width:auto;
+				height:auto;
+				margin-top:0px;
+				img{
+					width:auto;
+				}
+				.main_title{
+					font-size:20px;
+					font-weight:500;
+					padding:18px 10px;
+					text-align:left;
+					float:left;
+					display:none;
+					color:lighten($main_color,100%);
+				}
+			}
+			.navbar-toggle{
+				margin-top:30px;
+			}
+			.navbar-nav{
+				margin-left:20px;
+				li{
+					margin:0 1px;
+					padding:35px 0;
+					@include transition(all .5s);
+					a{
+						color:lighten($main_color,100%);
+						position:relative;
+						padding:6px 13px;
+						font-weight:500;
+						font-size:15px;
+						border-radius: 20px;
+						@include transition(all .5s);
+						text-transform:uppercase;
+						position:relative;
+						&:hover{
+							background:rgba(255,255,255,.7);
+							color:$main_color;
+						}
+						&:focus{
+							background:rgba(255,255,255,.7);
+							color:$main_color;
+						}
+						i{
+							float:left;
+							margin-right:10px;
+							margin-top:3px;
+						}
+						span{
+							i{
+								border:0;
+								position:absolute;
+								margin:auto;
+								left:50%;
+								top:100%;
+							}
+						}
+					}
+					.button-item{
+						background:$banner_color;
+						font-weight: bold;
+						font-size: 16px;
+						font-family: arial;
+					}
+					.dropdown-menu{
+						width:250px;
+						border-radius:none;
+						box-shadow:none;
+						border-bottom:0;
+						padding:0;
+						top:75%;
+						margin-top:25px;
+							li{
+								height: auto;
+								padding:0;
+								margin:0;
+								a{
+									border-radius: 0;
+									display: block;
+									padding: 10px 15px;
+									text-align: left;
+									color:$main_color;
+									font-size: 15px;
+									text-transform: capitalize;
+									border-bottom:1px solid lighten($silver,10%);
+									@include transition(all .5s);
+									&:hover{
+										background:lighten($silver,18%);
+									}
+									i{
+										float:left;
+										margin-right:10px;
+										font-size:14px;
+										color:$banner_color;
+									}
+								}
+							}
+					}
+					&:hover{
+						.dropdown-menu{
+							display:block;
+						}
+					}
+				}
+				.active{
+					a{
+						background:lighten($main_color,100%);
+						color:$main_color;
+					}
+				}
+			}
+		}
+		.menu_fixed{
+				background:$main_color;
+				position: fixed;
+				left: 0;
+				right: 0;
+				@include transition(all .5s);
+				top: 0;
+				z-index: 1000;
+				.navbar-nav{
+					li{
+						padding:27px 0;
+						@include transition(all .5s);
+						.dropdown-menu{
+							top:72%;
+						}
+					}
+				} 
+		}
+	}
+	/*
+		Manu Stylesheet End Now
+		/////////////////////
+	*/
+	
+	/*
+		Slider Stylesheet Start Now
+		/////////////////////
+	*/
+	.slider{
+		.item{
+			.slider_text{
+				opacity: 0;
+				position: absolute;
+				right: 17%;
+				top: 20%;
+				transition: all 4s ease 0s;
+				width: 38%;
+				.jumbotron{
+					background:none;
+					width:100%;
+					h1{
+						font-size:30px;
+						line-height:36px;
+						text-transform:uppercase;
+						color:$main_color;
+						font-weight:600;
+					}
+					p{
+						margin-top:7px;
+						color:darken($main_color,10%);
+						font-size:20px;
+						padding:0 65px 0 0;
+						a{
+							border-radius:9999px;
+							font-size:16px;
+							padding:8px 20px;
+							border:1px solid $main_color;
+							text-shadow:none;
+							@include transition(all .5s);
+							color:$main_color;
+							&:hover{
+								background:$main_color;
+								color:lighten($main_color,100%);
+							}
+							i{
+								margin-left:10px;
+							}
+						}
+					}
+				}
+			}
+		}
+		.carousel-control.left{
+			top:40%;
+				width:60px;
+				height:60px;
+				border-radius:50%;
+				background:$silver;
+				padding:15px;
+				background:$main_color;
+				opacity:.5;
+				@include transition(all .5s);
+				left:3%;
+				&:hover{
+					opacity:1;
+				}
+		}
+		.carousel-control.right{
+			top:40%;
+				width:60px;
+				height:60px;
+				border-radius:50%;
+				background:$silver;
+				padding:15px;
+				background:$main_color;
+				opacity:.5;
+				@include transition(all .5s);
+				right:3%;
+				&:hover{
+					opacity:1;
+				}
+		}
+	}
+	/*
+		Slider Stylesheet End Now
+		/////////////////////
+	*/
+
+	/*
+
+		inner_page_banner Stylesheet Start Now
+		/////////////////////
+	*/
+	#inner_page_banner{
+		background:url(../images/about_us_banner.jpg) no-repeat top center;
+		padding:70px 0;
+		margin-bottom:70px;
+		.inner_page_banner_text{
+			ul.page_list{
+				list-style:none;
+				margin:0;
+				padding:0;
+				li{
+					display:inline;
+					a{
+						color:$banner_color;
+						font-size:16px;
+						line-height:24px;
+						margin:0 5px;
+					}
+				}
+			}
+			.page_name{
+				font-size:30px;
+				color:lighten($main_color,100%);
+				margin:10px 0;
+			}
+			.inner_page_banner_title{
+				font-size:16px;
+				color:$main_color;
+			}
+		}
+	}
+	/*
+
+	inner_page_banner Stylesheet End Now
+	/////////////////////
+	*/
+}
+
+/*
+	Header Stylesheet End Now
+	/////////////////////
+*/
+
+/*
+	Section Stylesheet Start Now
+	/////////////////////
+*/
+section{
+/*
+	Our Product Stylesheet Start Now
+	/////////////////////
+*/
+	.first_section{
+		.container{
+			.row{
+				margin-left:0px;
+				margin-right:0px;
+				.owl-controls{
+						.owl-nav{
+							.owl-prev{
+								right: 11%;
+								position: absolute;
+								top: -10%;
+								&:before{
+									content: "\f104";
+									border: 1px solid $silver;
+									color: $silver;
+									display: inline-table;
+									font-family: "FontAwesome";
+									font-size: 20px;
+									padding: 0 21px;
+									position: absolute;
+								}
+								&:hover:before{
+									background:$main_color;
+									color:lighten($main_color,100%);
+									border:none;
+									border:1px solid $main_color;
+								}
+								
+							}
+							.owl-next{
+								right: 5%;
+								position: absolute;
+								top: -10%;
+								&:before{
+									content: "\f105";
+									border: 1px solid $silver;
+									color: $silver;
+									display: inline-table;
+									font-family: "FontAwesome";
+									font-size: 20px;
+									padding: 0 21px;
+									position: absolute;
+								}
+								&:hover:before{
+									background:$main_color;
+									color:lighten($main_color,100%);
+									border:none;
+									border:1px solid $main_color;
+								}
+							}
+						}
+					}
+			}
+		}
+		.thumbnail{
+			border:1px solid lighten($silver,15%);
+			padding:25px 25px 8px 25px;
+			text-align:center;
+			box-shadow:0 0 10px lighten($silver,15%);
+			border-radius:3px;
+			img.img-responsive{
+				width:auto;
+			}
+			.caption{
+				h3{
+					margin:12px 0;
+					a{
+					font-size:20px;
+					color:darken($main_color,100%);
+					}
+				}
+				p{
+					font-size:14px;
+					margin-bottom:35px;
+					a{
+						font-size:14px;
+						padding:12px 35px;
+						border-radius:0;
+						background:$main_color;
+						color:lighten($main_color,100%);
+						margin-top:12px;
+						border-radius:9999px;
+						@include transition(all .25s);
+						&:hover{
+							background:$banner_color;
+						}
+					}
+				}
+			}
+		}
+	}
+/*
+Our Product Stylesheet End Now
+/////////////////////
+*/
+/*
+	Services Stylesheet Start Now
+	/////////////////////
+*/
+	.second_section{
+		background:url(../images/our_service_img2.jpg);
+		background-repeat:no-repeat;
+		background-attachment:fixed;
+		background-size:100% 100%;
+		margin-top:90px;
+		.service_itme{
+			@include transition(all .25s);
+			padding:40px 0;
+			a{
+				margin:auto;
+				.icon_bg{
+					border-radius:50%;
+					text-align:center;
+					margin:auto;
+					display:table;
+					width:150px;
+					height:150px;
+					background:lighten($main_color,100%);
+					img{
+						margin: auto;
+						margin-top: 35px;
+					}
+				}
+				h4{
+					font-size:14px;
+					text-transform:uppercase;
+					margin-top:20px;
+					text-align:center;
+					color:lighten($main_color,100%);
+				}
+			}
+		}
+		.service_more_item{
+			.service_more_btn{
+				padding:10px 30px;
+				background:$banner_color;
+				margin:15px auto 40px;
+				display:table;
+				border-radius:9999px;
+				@include transition(all .25s);
+				color:lighten($main_color,100%);
+				i{
+					margin-left:12px;
+				}
+				&:hover{
+					background:$main_color;
+				}
+			}
+		}
+	}
+	/*
+		Services Stylesheet End Now
+		/////////////////////
+	*/
+
+	/*
+	Meet Our Team Stylesheet Start Now
+	/////////////////////
+	*/
+	.third_section{
+		.meet_out_team{
+			margin-top:45px;
+			.thumbnail{
+				position:relative;
+				float:left;
+				border-radius:0;
+				border:1px solid lighten($silver,15%);
+				width:100%;
+				.team_member_detials{
+					.doctor_img{
+						float:left;
+						width:50%;
+						position:relative;
+						.social{
+							background-color:$main_color;
+							left: 0;
+							right:0;
+							top:90%;
+							opacity:0;
+							padding: 10px 0;
+							position: absolute;
+							@include transition(all .25s);
+							right: 0;
+							text-align: center;
+							z-index: 1;
+							.icons{
+								background-color: transparent;
+								border: 1px solid lighten($main_color,100%);
+								border-radius: 50%;
+								color:lighten($main_color,100%);
+								display: inline-block;
+								height: 40px;
+								line-height: 40px;
+								margin: 0 5px;
+								text-align: center;
+								@include transition(all .25s);
+								vertical-align: top;
+								width: 40px;
+								&:hover{
+									background:darken($main_color,100%);
+								}
+							}
+						}
+						&:hover .social{
+							opacity:1;
+							top:81.5%;
+						}
+					}
+					.caption{
+						float: left;
+						padding: 15px 15px 0;
+						text-align: left;
+						width: 50%;
+						.name{
+							font-size:16px;
+							font-weight:700;
+							margin-top:20px;
+							text-transform:uppercase;
+							color:darken($main_color,100%);
+						}
+						.pos{ 
+							ul{
+							margin:0;
+							padding:0;
+							list-style:none;
+								li{
+									display:inline;
+									margin:0 2px;
+									font-size:14px;
+									color:$main_color;
+								}
+							}
+						}
+						.sort_bios{
+							font-size: 13px;
+							line-height: 23px;
+							text-align: justify;
+							margin-top:10px;
+							a{
+								display: table;
+								padding: 10px 18px;
+								background: $main_color;
+								color:lighten($main_color,100%);
+								font-size:14px;
+								margin-top:15px;
+								border-radius:9999px;
+								@include transition(all .25s);
+								&:hover{
+									background:$banner_color
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+/*
+	Meet Our Team Stylesheet End Now
+	/////////////////////
+*/
+/*
+	Testimonial Stylesheet Start Now
+	/////////////////////
+*/
+	.forth_section{
+		background: rgba(0, 0, 0, 0) url("../images/testimonial.jpg") no-repeat scroll 0 0;
+		margin-top: 90px;
+		padding-bottom: 140px;
+		.testimonial_mess_item{
+			text-align:center;
+			color:lighten($main_color,100%);
+			.testimonial_item{
+				.name{
+					font-size: 18px;
+					font-weight: 600;
+					text-transform: uppercase;
+				}
+				.pos{
+					font-size:16px;
+					color:$banner_color;
+					margin-bottom:15px;
+				}
+				.desc{
+					font-size: 15px;
+					font-style: italic;
+					position:relative;
+					color:darken($main_color,100%);
+					&:after{
+						content: "\f10e";
+						font-family: "fontawesome";
+						font-size: 50px;
+						font-style: normal;
+						position: absolute;
+						right: -60px;
+						top: -40px;
+					}
+				}
+			}
+			.carousel-control.left{
+				top:40%;
+				width:60px;
+				height:60px;
+				border-radius:50%;
+				background:darken($silver,15%);
+				background:$silver;
+				padding:15px;
+				opacity:.5;
+				@include transition(all .5s);
+				left:3%;
+				&:hover{
+					opacity:1;
+				}
+			}
+			.carousel-control.right{
+				top:40%;
+				width:60px;
+				height:60px;
+				border-radius:50%;
+				background:darken($silver,15%);
+				background:$silver;
+				padding:15px;
+				opacity:.5;
+				@include transition(all .5s);
+				right:3%;
+				&:hover{
+					opacity:1;
+				}
+			}
+		}
+	}
+/*
+Testimonial Stylesheet End Now
+/////////////////////
+*/
+/*
+About_Us_page Section Stylesheet
+/////////////////////
+*/
+	.inner_page_container{
+		margin:70px 0;
+		.left_side_info{
+			.doc_info{
+				img{
+					float:left;
+					margin-right:25px;
+				}
+				.pro_caption{
+					.name_title{
+						font-size:20px;
+						color:darken($silver,20%);
+					}
+					ul.degree
+						{
+							margin:5px 0 0 0;
+							padding:0;
+							list-style:none;
+							li{
+								display:inline;
+								font-size:14px;
+							}
+					}
+					.about_doc{
+						font-size: 15px;
+						line-height: 24px;
+						margin-top: 20px;
+						text-align: justify;
+						margin-bottom: 15px;
+						color:darken($silver,20%);
+					}
+					.doc_contact ul{
+						margin:10px 0 0 0;
+						padding:0;
+						list-style:none;
+						li{
+							display:block;
+							color:darken($silver,40%);
+							font-size:16px;
+							margin:5px 0;
+							a{
+								color:darken($silver,10%);
+							}
+							i{
+								font-size:18px;
+								color:$banner_color;
+								margin-right:10px;
+								float:left;
+								padding:3px 0;
+							}
+						}
+					}
+					.social_link{
+						ul{
+							margin:20px 0 0 0;
+							padding:0;
+							li{
+								display:inline;
+								a{
+									color:$main_color;
+									i{
+										border-radius: 50%;
+										font-size: 16px;
+										height: 35px;
+										margin-right: 5px;
+										padding: 9px 11px;
+										width: 35px;
+										border:1px solid $main_color;
+										@include transition(all .5s);
+										&:hover{
+											background:$main_color;
+											color:lighten($main_color,100%);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			.pro_overview{
+				h4{
+					font-size:22px;
+					text-align:left;
+					color:darken($silver,40%);
+					line-height:21px;
+				}
+				p{
+					font-size:15px;
+					text-align:justify;
+					color:darken($silver,30%);
+					margin:20px 0;
+					line-height:24px;
+					border-left:1px solid darken($silver,20%);
+					padding-left:20px;
+				}
+				.over_view{
+					float:left;
+					margin-top:40px;
+				}
+				.education_info{
+					float:left;
+					margin-top:30px;
+					.edu_all_info{
+						float:left;
+						padding:0px 15px 15px 15px;
+						width:45%;
+						border:1px solid $silver;
+						margin-top:20px;
+						margin-bottom:20px;
+						margin-right:5%;
+						h3{
+							font-size:18px;
+							color:$banner_color;
+							line-height:28px;
+							span{
+								color:darken($silver,20%);
+							}
+						}
+						h5{
+							color:darken($silver,30%);
+						}
+					}
+				}
+			}
+		}
+	}
+/*
+right side bar stylesheet
+/////////////////////
+*/
+	.right_side_info{
+		h1{
+			font-size:22px;
+			color:darken($silver,30%);
+			text-align:left;
+			line-height:0;
+			margin-bottom:30px;
+		}
+		.our_service_list{
+			margin-bottom:60px;
+			ul.service_listing{
+				border-left:1px solid lighten($banner_color,10%);
+				padding-left:20px;
+				list-style:none;
+				li{
+					display:list-item;
+					a{
+						color:darken($silver,20%);
+						border-bottom:1px solid $silver;
+						padding:8px 0;
+						display:block;
+						font-size:16px;
+						@include transition(all .5s);
+						&:hover{
+							background:$banner_color;
+							color:lighten($main_color,100%);
+							padding-left:15px;
+						}
+					}
+				}
+			}
+		}
+		.photo_gallery{
+			margin-bottom:60px;
+			.img_item{
+				float: left;
+				margin-bottom: 30px;
+				width: 100%;
+				a.thumbnail{
+					width:31.30%;
+					margin-bottom:10px;
+					border-radius:0;
+					float:left;
+					margin-right:3%;
+					@include transition(all .5s);
+					&:nth-child(3){
+						margin-right:0%;
+						float:right;
+					}
+					&:nth-child(6){
+						margin-right:0%;
+						float:right;
+					}
+					&:hover{
+						background:lighten($silver,10%);
+						border-color:lighten($silver,10%);
+					}
+				}
+			}
+		}
+		/*Contact Info stylesheet*/
+		.contact_info{
+			margin-bottom:30px;
+			float:left;
+			border-left:1px solid $silver;
+			padding-left:15px;
+			h5{
+				color:darken($silver,40%);
+				border-left:10px solid $banner_color;
+				font-size: 22px;
+				font-weight: 300;
+				margin: 15px 0;
+				padding-left: 17px;
+				margin-left: 10px;
+			}
+			.office_location{
+				margin:0;
+				padding:0;
+				list-style:none;
+				li{
+					display:block;
+					padding:5px 0;
+					font-size:16px;
+					color:darken($silver,10%);
+					@include transition(all .25s);
+					&:hover{
+						color:$banner_color;
+					}
+					i{
+						width:30px;
+						height:30px;
+						float:left;
+						padding:7px;
+						font-size:16px;
+						color:darken($silver,30%);
+						margin-right:10px;
+					}
+				}
+			}
+			.visit_info{
+				h3{
+					font-size:16px;
+					color:darken($silver,50%);
+					font-weight:400;
+					margin:15px 0;
+					i{
+						float:left;
+						color:darken($silver,30%);
+						font-size:18px;
+						margin-right:18px;
+						padding-left:12px;
+					}
+				}
+				.visit_day{
+					margin:-10px 0 0 0;
+					padding:0;
+					list-style:none;
+					li{
+						display:block;
+						padding:3px 0;
+						font-size:16px;
+						color:darken($silver,20%);
+						@include transition(all .25s);
+						margin-left:15px;
+						padding-left:15px;
+						i{
+							float:left;
+							color:$silver;
+							font-size:15px;
+							margin-right:10px;
+							padding-left:12px;
+						}
+						&:hover{
+							color:$banner_color;
+						}
+					}
+				}
+			}
+		}
+		/*Contact Info stylesheet End*/
+	}
+	/*
+	Book Eye Exam Appointment stylesheet
+	/////////////////////
+	*/
+	/*About U Stylesheet*/
+	.about_u_seft{
+		.about_your_details{
+			padding:25px;
+			border:1px solid lighten($silver,10%);
+		}
+		form{
+			h1{
+				color:$banner_color;
+				font-size: 22px;
+				text-align: left;
+				border-bottom:1px solid $banner_color;
+				display:table;
+				padding-bottom:10px;
+			}
+			h2{
+				color:$banner_color;
+				font-size: 22px;
+				text-align: left;
+				border-bottom:1px solid $banner_color;
+				display:table;
+				padding-bottom:10px;
+				margin-top:40px;
+				float:left;
+			}
+			div.input_item{
+				width:100%;
+				margin-top:15px;
+				margin-bottom:15px;
+				float:left;
+				label{
+					display:block;
+					margin-bottom:15;
+					color:$main_color;
+					font-weight:500;
+					font-size:15px;
+					float:left;
+					span{
+						float: right;
+						font-size: 30px;
+						line-height: 0;
+						margin-left: 2px;
+						margin-top: 15px;
+						color:$banner_color;
+					}
+				}
+				input{
+					width:100%;
+					height:40px;
+					border:1px solid lighten($silver,10%);
+					padding-left:15px;
+					color:darken($silver,15%);
+				}
+				textarea{
+					width:100%;
+					border:1px solid lighten($silver,10%);
+					padding:20px;
+					height:200px;
+					resize:none;
+				}
+				select.select_option{
+					width:100%;
+					height:40px;
+					border:1px solid lighten($silver,10%);
+					padding-left:15px;
+					color:darken($silver,15%);
+					option{
+						border:0;
+						border-bottom:1px solid lighten($silver,10%);
+						height: 25px;
+						padding: 4px 15px;
+						width: 100%;
+					}
+				}
+			}
+			.submit{
+				float:left;
+				input{
+					padding:10px 30px;
+					font-size:16px;
+					color:lighten($main_color,100%);
+					background:$banner_color;
+					border:none;
+				}
+			}
+		}
+		iframe{
+			width:100%;
+			height:250px;
+			border:5px solid lighten($silver,20%)!important;
+		}
+	}
+	/*About U Stylesheet End*/
+	/*
+	our_service_product_item page stylesheet
+	/////////////////////
+	*/
+	.our_service_product_item{
+		.thumbnail{
+			border-radius:0;
+			padding:0 0 15px 0;
+			margin-bottom:50px;
+			text-align:center;
+			border:1px solid lighten($silver,15%);
+			border-radius:3px;
+			img.title_main_img{
+				margin-bottom:30px;
+			}
+			.caption{
+				padding:0 12px;
+				img.service_icon{
+					padding:17px 6px;
+					border-radius:50%;
+					border:4px solid lighten($silver,20%);
+					width:100px;
+					background:rgba(0, 34, 101, 1);
+					position:relative;
+					top:-65px;
+					margin-bottom:-65px;
+				}
+				.service_title{
+					color:$main_color;
+					h3{
+						font-size:18px;
+						margin:15px 0;
+						font-weight:600;
+						text-transform:uppercase;
+					}
+				}
+				p{
+					font-size:14px;
+					line-height:21px;
+					margin-bottom:25px;
+					a{
+						padding:12px 25px;
+						background:$main_color;
+						color:lighten($main_color,100%);
+						border-radius:25px;
+						@include transition(all .25s);
+						&:hover{
+							background:$banner_color;
+						}
+					}
+				}
+			}
+		}
+	}
+	/*
+	our_service_product_item page stylesheet End
+	/////////////////////
+	*/
+	/*
+	service details page
+	/////////////////////
+	*/
+	.service_details{
+		img{
+			margin-bottom:30px; 
+		}
+		p{
+			line-height:22px;
+			text-align:justify;
+		}
+	}
+	/*
+	service details page End
+	/////////////////////
+	*/
+	
+	
+	
+	/*
+	Product details page
+	/////////////////////
+	*/
+	.product_details_info{
+		float:left;
+		width:100%;
+		border:1px solid $silver;
+		margin-top:50px;
+		margin-bottom:50px;
+		img{
+			margin-bottom:30px;
+			float:left;
+		}
+		h1{
+			color:$banner_color;
+			font-size:24px;
+		}
+		h3{
+			color:darken($silver,20%);
+			margin-bottom:20px;
+			font-size:18px;
+		}
+		p{
+			line-height:22px;
+			text-align:justify;
+			font-size:15px;
+		}
+	}
+	/*
+	service details page End
+	/////////////////////
+	*/
+}
+/*
+Section Stylesheet End Now
+/////////////////////
+*/
+
+/*
+Footer Stylesheet Start Now
+/////////////////////
+*/
+
+footer{
+	padding-top:55px;
+	background:$main_color;
+	.footer_item{
+		.links_item{
+			margin:0;
+			padding:0;
+			font-size:16px;
+			line-height:24px;
+			list-style:none;
+			li{
+				display:list-item;
+				a{
+					color:lighten($main_color,100%);
+				}
+			}
+		}
+		.footer_contact{
+			.contact-info{
+				.list-unstyled{
+					margin:0 0 0 -15px;
+					padding:0;
+					li{
+						margin:7px 0;
+						color:lighten($main_color,100%);
+						font-size:16px;
+						a{
+							color:lighten($main_color,100%);
+							i{
+								font-size:14px;
+								float:left;
+								width:40px;
+								height:25px;
+							}
+						}
+						i{
+							font-size: 14px;
+							float: left;
+							padding: 4px 15px;
+							width: 40px;
+							height: 25px;
+						}
+						.phone_num{
+							color:$banner_color;
+						}
+					}
+				}
+			}
+		}
+		.footer_heading{
+			margin-bottom:32px;
+			p{
+				font-size: 16px;
+				font-weight: 600;
+				margin-top: 10px;
+				text-transform: uppercase;
+				color:lighten($main_color,100%);
+			}
+		}
+		.social_icon{
+			float:left;
+			ul{
+				margin:10px 0 0 0;
+				padding:0;
+				list-style:none;
+				li{
+					display:inline;
+					a{
+						width:40px;
+						height:40px;
+						border:1px solid lighten($main_color,100%);
+						color:lighten($main_color,100%);
+						display:inline-block;
+						border-radius:50%;
+						padding:12px 12px;
+						margin-right:5px;
+						i{
+							font-size:18px;
+						}
+						&:hover{
+							background:darken($main_color,100%);
+							@include transition(all .25s);
+						}
+					}
+				}
+			}
+		}
+	}
+	.last_footer{
+		text-align:center;
+		font-size:13px;
+		margin-top:80px;
+		clear:both;
+		background:$main_color;
+		p{
+			padding:10px 0;
+			margin:0;
+			font-size:12px;
+			color:darken($silver,20%);
+			a{
+				color:lighten($main_color,60%);
+				&:hover{
+					text-decoration:underline;
+				}
+			}
+		}
+	}
+	.bottom_to_top{
+		position:fixed;
+		right:1%;
+		bottom:0%;
+		opacity:0;
+		@include transition(all .5s);
+		z-index:1000000;
+		a{
+			i{
+				background:darken($main_color,10%);
+				color:lighten($main_color,100%);
+				padding:13px 15PX; 
+				font-size:18px;
+			}
+		}
+	}
+	.bottom_top_active{
+		bottom:3%;
+		opacity:1;
+		transform: scale(1, 1);
+	}
+}
+/*
+Footer Stylesheet End Now
+/////////////////////
+*/
+
+
+
+/*
+Responsive stylesheet Start Now
+/////////////////////
+////////////////////
+///////////////////
+*/
+
+
+@media screen and (max-width:1199px){
+	/* // Home Page Stylesheet Start //  */
+	header .top_header .navbar-default .navbar-nav{margin-left:0;}
+	header .top_header .navbar-default .navbar-nav li a{font-size: 13px;padding: 6px 10px;}
+	header .top_header .navbar-default .navbar-nav li .button-item{font-size: 14px;}
+	header .top_header .navbar-default .navbar-nav li .dropdown-menu li a{font-size:13px;}
+	header .slider .item .slider_text{top:5%;width:45%;}
+	section .third_section .meet_out_team .thumbnail .team_member_detials .caption .sort_bios{font-size: 12px;line-height: 19px;margin-top: 0;}
+	section .third_section .meet_out_team .thumbnail .team_member_detials .caption .sort_bios a{font-size: 13px;margin-top: 12px;padding: 7px 18px;}
+	section .third_section .meet_out_team .thumbnail .team_member_detials .caption .name{font-size: 15px;margin-top: 4px;}
+	section .third_section .meet_out_team .thumbnail .team_member_detials .doctor_img .social .icons{line-height:28px;width:30px;height:30px;margin:0 2px;}
+	/* // Home Page Stylesheet End //  */
+	/* // About Us Page Stylesheet Start //  */
+}
+@media screen and (max-width:991px){
+	/* // Home Page Stylesheet Start //  */
+	/*Manu Break*/
+	 .navbar-header{
+		float:none;
+	 }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-collapse.collapse.in {
+        display: block!important;
+    }
+	header .top_header .navbar-default .navbar-brand .main_title{display:block;}
+	.navbar-default .navbar-toggle{border-color:light($main_color,100%);display: block;border-radius:0;}
+	.navbar-default .navbar-toggle .icon-bar{background-color:lighten($main_color,100%)}
+	.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{background:none;}
+	header .slider .item .slider_text .jumbotron h1{font-size: 22px;line-height:20px;}
+	.nav.navbar-nav{padding:0 15px 0 0;}
+	.navbar-default .navbar-collapse, .navbar-default .navbar-form{border:none;box-shadow:none;}
+	header .slider .item .slider_text .jumbotron{padding-top:0;}
+	header .slider .item .slider_text .jumbotron p{font-size: 18px;margin-bottom:10px;padding:0 45px 0 0;}
+	header .top_header .navbar-default .navbar-nav li .dropdown-menu{border:none;display: block !important;margin-top: 0;position: relative;top: 0;width: 100%;background:none;left:15px;}
+	.menu .dropdown .drop_icon{display:none;}
+	header .top_header .navbar-default .navbar-nav .active a{background:none;color:lighten($main_color,100%);}
+	header .top_header .navbar-default .navbar-nav li{float: left;width: 100%;padding:0;}
+	header .top_header .navbar-default .navbar-nav li .dropdown-menu li a{border-bottom:1px solid darken($main_color,5%);border-top:1px solid lighten($main_color,5%);}
+	header .top_header .navbar-default .navbar-nav li .dropdown-menu li a:hover{color:lighten($main_color,100%);background:darken($main_color,5%);}
+	header .top_header .navbar-default .navbar-nav li a{border-radius:0px;border-bottom:1px solid darken($main_color,5%);border-top:1px solid lighten($main_color,5%);}
+	header .top_header .navbar-default .navbar-nav li a:hover{color:lighten($main_color,100%);background:darken($main_color,5%);}
+	header .top_header .navbar-default .navbar-nav li .dropdown-menu li a{color:lighten($main_color,100%);}
+	section .second_section{margin-top:60px;}
+	body .heading_title{margin-top:60px;}
+	body .sub_heading{font-size: 15px;padding: 0 10px;}
+	body .heading_title, body .heading_title_2{margin-bottom:0;}
+	.doctor_img{width:100% !important;}	
+	section .first_section .container .row .owl-controls .owl-nav .owl-prev{right:16%;}
+	section .first_section .container .row .owl-controls .owl-nav .owl-next{right:7%;}
+	section .second_section .service_itme a .icon_bg{}
+	section .third_section .meet_out_team .thumbnail .team_member_detials .caption{width:100%}
+	section .third_section .meet_out_team .thumbnail .team_member_detials .doctor_img:hover .social{top:86%;}
+	section .first_section .thumbnail .caption h3 a{font-size:15px;}
+	header .slider .carousel-control.left{width:45px;height:45px;padding:7px;}
+	header .slider .carousel-control.right{width:45px;height:45px;padding:7px;}
+	footer .footer_item .footer_contact .contact-info .list-unstyled li i{height:25px;}
+	footer .last_footer p{font-size:11px;}
+	/* // Home Page Stylesheet End  //  */
+	
+	/* // Service Page Stylesheet Start //  */
+	.our_service_product_item .col-sm-4{width:50%;}
+	
+	/* // appointment Page Stylesheet Start //  */
+	.appointment_section .col-sm-8{width:100%;margin-bottom:40px;}
+	.appointment_section .col-sm-4{width:100%;}
+	
+	/* // Contact Us Page Stylesheet Start //  */
+	.contact_us_section .col-sm-8{width:100%;margin-bottom:40px;}
+	.contact_us_section .col-sm-4{width:100%;}
+	
+	/* // Product Details Page Stylesheet Start //  */
+	.product_details_section .col-sm-8{width:100%;margin-bottom:40px;}
+}
+@media screen and (max-width:767px){
+	/* // Home Page Stylesheet Start  //  */
+	.meet_out_team .col-xs-12{width:50%;}
+	.first_section .col-xs-12{width:33.33%;}
+	footer .col-xs-12{width:50%;}
+	.last_footer .col-xs-12{width:100%;}
+	header .top_header .navbar-default .navbar-nav li{padding:0;}
+	header .slider .item .slider_text{right: 5%;width: 60%;}
+	header .slider .item .slider_text .jumbotron{padding-top:0px;}
+	section .second_section .service_more_item .service_more_btn{padding:10px 15px;}
+	section .first_section .thumbnail .caption p a{font-size:13px;padding:10px 16px;}
+	section .forth_section .testimonial_mess_item .testimonial_item .desc::after{right:-30px;}
+	section .second_section .service_itme a h4{line-height:24px;}
+	section .right_side_info .contact_info h5{font-size:18px;}
+	section .right_side_info .contact_info .office_location li{font-size:15px;}
+	section .right_side_info .contact_info .visit_info .visit_day li{font-size:15px;}
+	
+	/* // Home Page Stylesheet End  //  */
+	
+	/* // About Us Page Stylesheet Start //  */
+	footer .footer_item .footer_contact .contact-info .list-unstyled li .phone_num span{display: block;}
+	
+	/* // Service Page Stylesheet Start //  */
+	.our_service_product_item .col-xs-12{width:50%;}
+	section .our_service_product_item .thumbnail .caption .service_title h3{font-size:17px;}
+
+	
+}
+@media screen and (max-width:667px){
+	/* // Home Page Stylesheet Start  //  */
+	header .slider .item .slider_text .jumbotron h1{font-size: 19px;line-height: 10px;}
+	header .slider .item .slider_text .jumbotron p{font-size:16px;}
+	footer .last_footer p a{display:block;}
+	header .slider .item .slider_text{width:60%;right:5%;}
+	body .heading_title, body .heading_title_2{font-size: 22px;line-height: 25px;}
+	section .second_section .service_more_item .service_more_btn{font-size:14px;}
+	.first_section .col-xs-12{width:100%;}
+	section .first_section .container .row .owl-controls .owl-nav .owl-prev{right:18%;}
+	section .first_section .container .row .owl-controls .owl-nav .owl-next{right:8%;}
+	/* // Home Page Stylesheet End  //  */
+	
+	/* // About Us Page Stylesheet Start //  */
+	footer .footer_item .footer_contact .contact-info .list-unstyled li{font-size:15px;}
+	footer .footer_item .footer_contact .contact-info .list-unstyled li i{height:48px;}
+	
+	/* // Service Page Stylesheet Start //  */
+}
+@media screen and (max-width:599px){
+	/* // Home Page Stylesheet Start  //  */	
+	header .slider .item .slider_text .jumbotron p a{font-size:16px;padding:6px 19px;}
+	section .first_section .container .row .owl-controls .owl-nav .owl-prev::before{padding:0 13px;}
+	section .first_section .container .row .owl-controls .owl-nav .owl-next::before{padding:0 13px;}
+	.owl-carousel .owl-item{width:100%;}
+	/* // Home Page Stylesheet End  //  */
+	
+	/* // About Us Page Stylesheet Start //  */
+	footer .footer_item .links_item{font-size:14px;}
+	section .inner_page_container .left_side_info .doc_info img{float:none;margin-bottom:30px;}
+	section .inner_page_container .left_side_info .pro_overview .education_info .edu_all_info{width:100%;}
+	header #inner_page_banner{padding:30px 0;}
+	
+	/* // Service Page Stylesheet Start //  */
+	.our_service_product_item .col-xs-12{width:100%;}
+	.img-responsive.title_main_img{width:100%;}
+}
+@media screen and (max-width:555px){
+
+	/* // Home Page Stylesheet Start  //  */
+	
+	.meet_out_team .col-xs-12{width:100%;}
+	.first_section .thumbnail img{margin:auto;}
+	header .slider .item .slider_text .jumbotron h1{font-size: 15px;line-height: 0;}
+	header .slider .item .slider_text .jumbotron p{font-size: 14px;}
+	header .slider .item .slider_text .jumbotron p a{font-size: 13px;padding: 6px 17px;text-shadow: none;}
+	section .third_section .meet_out_team .thumbnail .team_member_detials .caption .sort_bios a{font-size:14px;padding:10px 25px;}
+	.first_section .thumbnail{margin-bottom:30px;}
+	section .third_section .meet_out_team .thumbnail .team_member_detials .caption .sort_bios{font-size: 13px;line-height: 22px;margin-top: 10px;}
+	section .first_section .thumbnail .caption p a{font-size: 15px;padding: 12px 30px;}
+	header .slider .item .slider_text{top:7%;}
+	footer .col-xs-12{width:100%;}
+	header .top_header .navbar-default .navbar-brand .main_title{font-size:15px;}
+	footer{padding-top:0;}
+	footer .footer_item .footer_heading p{margin-top:40px;}
+	footer .footer_item .footer_heading{margin-bottom:20px;}
+	section .forth_section .testimonial_mess_item .testimonial_item .desc{font-size:14px;}
+	/* // Home Page Stylesheet End  //  */
+	
+	
+	/* // About Us Page Stylesheet Start //  */
+	footer .footer_item .footer_contact .contact-info .list-unstyled li i{height:25px;}
+}
+@media screen and (max-width:505px){
+	
+	/* // Home Page Stylesheet Start  //  */
+	
+	header .slider .item .slider_text{top:0;}
+	header .slider .item .slider_text .jumbotron p{padding:0;}
+	footer .footer_item .footer_contact .contact-info .list-unstyled li i{height:25px}
+	header .slider .item .slider_text .jumbotron .display-3{font-size: 0.85rem;}
+	header .slider .item .slider_text{width:65%;}
+	header .slider .item .slider_text .jumbotron{padding: 10px 0;width: 100%;}
+	header .top_header .navbar-default .navbar-brand img{width:25%;}
+	.navbar-default .navbar-brand{width:70% !important;}
+	
+	/* // Home Page Stylesheet End  //  */
+	
+}
+@media screen and (max-width:470px){
+
+	/* // Home Page Stylesheet Start  //  */
+	
+	header .slider .item .slider_text .jumbotron p{font-size: 13px;line-height: 14px;}
+	header .slider .item .slider_text .jumbotron h1{font-size:15px;margin-top:0;}
+	header .slider .item .slider_text .jumbotron p a{font-size: 11px;padding: 0 13px 3px;text-shadow: none;}
+	header .top_header .navbar-default .navbar-brand .main_title{display: none;}
+	header .top_header .navbar-default .navbar-brand img{width:30%;}
+	header .top_header .navbar-default .navbar-toggle{margin-top:19px;}
+	
+	/* // Home Page Stylesheet End  //  */
+}
+@media screen and (max-width:370px){
+
+	/* // Home Page Stylesheet Start  //  */
+	
+	section .second_section .service_more_item .service_more_btn{font-size:12px;}
+	header .top_header .navbar-default .navbar-toggle{margin-top:15px;}
+	/* // Home Page Stylesheet End  //  */
+	
+	/* // About Us Page Stylesheet Start //  */
+	section .right_side_info .photo_gallery .img_item a.thumbnail{width:100%;margin-right:0;}
+}

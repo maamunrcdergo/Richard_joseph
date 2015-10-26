@@ -1,0 +1,94 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 12, 2015, 12:19:06 PM
+    Author     : Anup
+*/
+.theme-media-box{
+    border: 1px solid #f4f4f4;
+    padding: 15px;
+    margin:15px 0;
+    text-align: center;
+    position: relative;
+}
+.theme-media-box .media-box-img{
+    padding: 2px;
+    border: 1px solid #f4f4f4;
+    max-width: 100%;
+}
+.theme-media-box .media-close{
+ background: none repeat scroll 0 0 transparent;
+    border: 1px solid #f4f4f4;
+    box-shadow: none;
+    color: #999;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+.btn-media{
+    background: none repeat scroll 0 0 #e0e0e0;
+    border: medium none;
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: 4px;
+    padding: 4px 8px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: none;
+    top: -3px;
+    min-width: 150px;
+    padding: 15px;
+    cursor: pointer;
+}
+.btn-media-upload.hidden{
+ display: none;
+}
+fieldset.uiu-apps{
+    border-top: 2px solid #e0e0e0;
+    margin-bottom: 15px;
+}
+fieldset.uiu-apps legend{
+    border: 2px solid #e0e0e0;
+    border-bottom: 0px;
+    padding: 8px;
+    font-size: 18px;
+   
+}
+.cgallery{
+    border: 1px dashed #999;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.cgallery .gthumb{
+    border: 1px solid #ccc;
+    background: #ddd;
+    padding: 3px;
+    display: inline-block;
+    position: relative;
+    margin: 3px;
+    max-width: 75px;
+}
+.cgallery .gthumb .gimg-remove{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: #ff291c;
+    cursor: pointer;
+}
+.cgallery .gthumb img{
+    max-width: 75px;
+}
+.theme-media-box  .mcontent{
+    max-width: 100%;
+}
+.theme-media-box img{
+    max-width: 100%;
+    width: 150px;
+}
