@@ -11,34 +11,33 @@
  *
  * @author Anup Biswas <anup@illusivedesign.net>
  */
-class Service_Content_Type {
+class Sliders_Content_Type {
 
-  private $post_type = 'drjosefh_service';
-  private $slug = 'service';
+  private $post_type = 'drjosefh_slider';
+  private $slug = 'slider';
   private $lan = 'drjosefh';
 
   function __construct() {
-    add_action('init', array($this, 'register'));
-    add_shortcode('services', array($this, 'shortcodes'));
+    add_action('init', array($this, 'register'));    
     $this->metabox();
   }
 
   public function register() {
     $service_labels = array(
-      'name' => _x('Service', 'post type general name', $this->lan),
-      'singular_name' => _x('Service', 'post type singular name', $this->lan),
-      'menu_name' => _x('Services', 'admin menu', $this->lan),
-      'name_admin_bar' => _x('Service', 'add new on admin bar', $this->lan),
-      'add_new' => _x('Add New', 'Service', $this->lan),
-      'add_new_item' => __('Add New Service', $this->lan),
-      'new_item' => __('New Service', $this->lan),
-      'edit_item' => __('Edit Service', $this->lan),
-      'view_item' => __('View Service', $this->lan),
-      'all_items' => __('All Services', $this->lan),
-      'search_items' => __('Search Services', $this->lan),
-      'parent_item_colon' => __('Parent Services:', $this->lan),
-      'not_found' => __('No services found.', $this->lan),
-      'not_found_in_trash' => __('No services found in Trash.', $this->lan)
+      'name' => _x('Slider', 'post type general name', $this->lan),
+      'singular_name' => _x('Slide', 'post type singular name', $this->lan),
+      'menu_name' => _x('Slides', 'admin menu', $this->lan),
+      'name_admin_bar' => _x('Slider', 'add new on admin bar', $this->lan),
+      'add_new' => _x('Add New', 'Slide', $this->lan),
+      'add_new_item' => __('Add New Slide', $this->lan),
+      'new_item' => __('New Slide', $this->lan),
+      'edit_item' => __('Edit Slide', $this->lan),
+      'view_item' => __('View Slide', $this->lan),
+      'all_items' => __('All Slides', $this->lan),
+      'search_items' => __('Search Slides', $this->lan),
+      'parent_item_colon' => __('Parent Slides:', $this->lan),
+      'not_found' => __('No slides found.', $this->lan),
+      'not_found_in_trash' => __('No slides found in Trash.', $this->lan)
     );
     $service_arg = array(
       'labels' => $service_labels,
@@ -53,8 +52,8 @@ class Service_Content_Type {
       'has_archive' => true,
       'hierarchical' => false,
       'menu_position' => null,
-      'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
-      'menu_icon'=> DRJOSEPH_THEME_URL.'/images/icon-service.png'
+      'supports' => array('title','thumbnail', 'excerpt'),
+      'menu_icon'=> DRJOSEPH_THEME_URL.'/images/icon-slider.png'
     );
     register_post_type($this->post_type, $service_arg);
   }
@@ -66,7 +65,7 @@ class Service_Content_Type {
   function metabox() {
     if (function_exists("register_field_group")) {
       register_field_group(array(
-        'id' => 'acf_service_metabox',
+        'id' => 'acf_sliders_metabox',
         'title' => 'Service Fields',
         'fields' => array(
           array(
@@ -106,4 +105,4 @@ class Service_Content_Type {
 
 }
 
-new Service_Content_Type();
+new Sliders_Content_Type();
