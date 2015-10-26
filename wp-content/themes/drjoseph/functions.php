@@ -11,6 +11,8 @@ require_once DRJOSEPH_THEME_LIBSPATH.'/ReduxFramework/ReduxCore/framework.php';
 require_once DRJOSEPH_THEME_LIBSPATH.'/ReduxFramework/drjoseph-config.php';
 require_once DRJOSEPH_THEME_LIBSPATH.'/theme-setups.php';
 require_once DRJOSEPH_THEME_LIBSPATH.'/theme-functions.php';
+//Add Custom Post Type
+require_once DRJOSEPH_THEME_LIBSPATH.'/class-service-content-type.php';
 
 function wpprint($data){
   echo '<pre>';
