@@ -234,31 +234,7 @@ class DrjosephOptionConfig {
                 'title' => __('Custom Favicon Icon', 'drjoseph'),
                 'default' => array('url' => $this->media_url . 'favicon.ico'),
                 'preview' => false,
-            ),
-            array(
-                'id' => 'support_phone',
-                'type' => 'text',
-                'title' => __('Support Phone', 'drjoseph'),
-            ),
-            array(
-                'id' => 'site_layout',
-                'type' => 'switch',
-                'title' => __('Site Layout', 'drjoseph'),
-                'default' => 1,
-                'on' => 'Boxed',
-                'off' => 'Fluid',
-            ),
-            array(
-                'id' => 'site_breakpoint',
-                'type' => 'select',
-                'title' => __('Break Point', 'drjoseph'),
-                'options' => array(
-                    '768' => '768px',
-                    '992' => '992px',
-                    '1200' => '1200px',
-                ),
-                'default' => '768'
-            ),
+            ),            
         );
         return array(
             'title' => __('Basic Fields', 'drjoseph'),

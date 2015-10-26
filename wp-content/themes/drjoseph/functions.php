@@ -10,3 +10,10 @@ require_once DRJOSEPH_THEME_LIBSPATH.'/tgm-plugin-activation.php';
 require_once DRJOSEPH_THEME_LIBSPATH.'/ReduxFramework/ReduxCore/framework.php';
 require_once DRJOSEPH_THEME_LIBSPATH.'/ReduxFramework/drjoseph-config.php';
 require_once DRJOSEPH_THEME_LIBSPATH.'/theme-setups.php';
+require_once DRJOSEPH_THEME_LIBSPATH.'/theme-functions.php';
+
+function wpprint($data){
+  echo '<pre>';
+  print_r($data);
+  echo '</pre>';
+}
