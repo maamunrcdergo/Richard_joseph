@@ -6,4 +6,7 @@ define('DRJOSEPH_HOME_URL',  home_url( '/' ));
 
 //Required Files
 require_once DRJOSEPH_THEME_LIBSPATH.'/navwalker.php';
+require_once DRJOSEPH_THEME_LIBSPATH.'/tgm-plugin-activation.php';
+require_once DRJOSEPH_THEME_LIBSPATH.'/ReduxFramework/ReduxCore/framework.php';
+require_once DRJOSEPH_THEME_LIBSPATH.'/ReduxFramework/drjoseph-config.php';
 require_once DRJOSEPH_THEME_LIBSPATH.'/theme-setups.php';
