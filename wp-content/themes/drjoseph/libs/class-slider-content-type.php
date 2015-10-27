@@ -66,18 +66,40 @@ class Sliders_Content_Type {
     if (function_exists("register_field_group")) {
       register_field_group(array(
         'id' => 'acf_sliders_metabox',
-        'title' => 'Service Fields',
+        'title' => 'Slide Links',
         'fields' => array(
           array(
-            'key' => '',
-            'label' => 'test',
-            'name' => 'test',
+            'key' => 'slide_link_text',
+            'label' => 'Link Text',
+            'name' => 'link_text',
             'type' => 'text',
-            'default_value' => 'test',
-            'placeholder' => 'test',
+            'default_value' => 'Learn more',
+            'placeholder' => 'Learn more',
             'prepend' => '',
             'append' => '',
             'formatting' => 'html',
+            'maxlength' => '',
+          ),
+          array(
+            'key' => 'slide_link_link',
+            'label' => 'Link Url',
+            'name' => 'link_url',
+            'type' => 'text',
+            'default_value' => '#',
+            'placeholder' => 'http:\\',
+            'prepend' => '',
+            'append' => '',
+            'formatting' => 'html',
+            'maxlength' => '',
+          ),
+          array(
+            'key' => 'slide_order',
+            'label' => 'Custom Order',
+            'name' => 'custom_order',
+            'type' => 'number',
+            'default_value' => '1',            
+            'prepend' => '',
+            'append' => '',            
             'maxlength' => '',
           ),
         ),
@@ -86,7 +108,7 @@ class Sliders_Content_Type {
             array(
               'param' => 'post_type',
               'operator' => '==',
-              'value' => 'drjosefh_service',
+              'value' => $this->post_type,
               'order_no' => 0,
               'group_no' => 0,
             ),
@@ -106,3 +128,29 @@ class Sliders_Content_Type {
 }
 
 new Sliders_Content_Type();
+
+function get_drjosefh_slides($args=array()){
+  $defaults = array(
+    'post_type'=>'drjosefh_slider',
+    'orderby' => 'meta_value_num',
+    'order'   => 'ASC',
+    'meta_key'  => 'custom_order',
+    'posts_per_page' => 8,
+    );
+  $args = wp_parse_args( $args, $defaults );
+  $slides_query = get_posts($args);
+  $slides_data = array();
+  if(!empty($slides_query)){
+    foreach($slides_query as $key=>$slide){
+      $sdata = new stdClass();
+      $sdata->title = $slide->post_title;
+      $sdata->content = $slide->post_excerpt;
+      $sdata->link_text = get_field('link_text', $slide->ID);
+      $sdata->link_url = get_field('link_url', $slide->ID);
+      $attchment = get_post_thumbnail_id($slide->ID, 'full');
+      $sdata->img = wp_get_attachment_url( $attchment );      
+      $slides_data[$key]= $sdata;
+    }
+  }
+return $slides_data;
+}
