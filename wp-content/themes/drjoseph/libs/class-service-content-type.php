@@ -54,7 +54,7 @@ class Service_Content_Type {
       'hierarchical' => false,
       'menu_position' => null,
       'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
-      'menu_icon'=> DRJOSEPH_THEME_URL.'/images/icon-service.png'
+      'menu_icon' => DRJOSEPH_THEME_URL . '/images/icon-service.png'
     );
     register_post_type($this->post_type, $service_arg);
   }
@@ -70,16 +70,26 @@ class Service_Content_Type {
         'title' => 'Service Fields',
         'fields' => array(
           array(
-            'key' => '',
-            'label' => 'test',
-            'name' => 'test',
-            'type' => 'text',
-            'default_value' => 'test',
-            'placeholder' => 'test',
+            'key' => 'service_icon',
+            'label' => 'Icon Image',
+            'name' => 'icon',
+            'type' => 'image',
+            'save_format' => 'object',
+            'preview_size' => 'thumbnail',
+            'library' => 'all',
+          ),
+          array(
+            'key' => 'service_custom_order',
+            'label' => 'Order',
+            'name' => 'custom_order',
+            'type' => 'number',
+            'default_value' => '1',
+            'placeholder' => '',
             'prepend' => '',
             'append' => '',
-            'formatting' => 'html',
-            'maxlength' => '',
+            'min' => '',
+            'max' => '',
+            'step' => '',
           ),
         ),
         'location' => array(
@@ -87,7 +97,7 @@ class Service_Content_Type {
             array(
               'param' => 'post_type',
               'operator' => '==',
-              'value' => 'drjosefh_service',
+              'value' => $this->post_type,
               'order_no' => 0,
               'group_no' => 0,
             ),
@@ -107,3 +117,32 @@ class Service_Content_Type {
 }
 
 new Service_Content_Type();
+
+function get_drjosefh_services($args=array()){
+  $defaults = array(
+    'post_type'=>'drjosefh_service',
+    'orderby' => 'meta_value_num',
+    'order'   => 'ASC',
+    'meta_key'  => 'custom_order',
+    'posts_per_page' => -1,
+    );
+  $args = wp_parse_args( $args, $defaults );
+  $services_query = get_posts($args);
+  $services_data = array();
+  if(!empty($services_query)){
+    foreach($services_query as $key=>$service){
+      $sdata = new stdClass();
+      $sdata->title = $service->post_title;
+      $sdata->excerpt = $service->post_excerpt;
+      $sdata->content = $service->post_content;
+      $sdata->url = get_the_permalink($service->ID);
+      $icon_att_id = get_field('icon', $service->ID);
+      $sdata->icon = wp_get_attachment_url( $icon_att_id );
+      $attchment = get_post_thumbnail_id($service->ID, 'full');
+      $sdata->img = wp_get_attachment_url( $attchment );      
+      $services_data[$key]= $sdata;
+    }
+  }
+  wpprint($services_data);
+return $services_data;
+}

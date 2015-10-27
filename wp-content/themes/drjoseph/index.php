@@ -384,6 +384,7 @@
 			</div>
 		</div>
 	</footer><!--End Footer-->
+  <?php //get_drjosefh_services();?>
 	<?php wp_footer(); ?>	
   </body>
 </html>
