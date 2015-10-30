@@ -15,6 +15,8 @@ require_once DRJOSEPH_THEME_LIBSPATH.'/theme-functions.php';
 require_once DRJOSEPH_THEME_LIBSPATH.'/class-service-content-type.php';
 require_once DRJOSEPH_THEME_LIBSPATH.'/class-slider-content-type.php';
 require_once DRJOSEPH_THEME_LIBSPATH.'/class-doctor-content-type.php';
+require_once DRJOSEPH_THEME_LIBSPATH.'/class-product-content-type.php';
+require_once DRJOSEPH_THEME_LIBSPATH.'/class-testimonial-content-type.php';
 
 function wpprint($data){
   echo '<pre>';

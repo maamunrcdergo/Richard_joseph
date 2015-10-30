@@ -16,9 +16,11 @@ class Service_Content_Type {
   private $post_type = 'drjosefh_service';
   private $slug = 'service';
   private $lan = 'drjosefh';
+  private $taxonomy = 'service-catalog';
 
   function __construct() {
     add_action('init', array($this, 'register'));
+    add_action('init', array($this, 'taxonomies'));
     add_shortcode('services', array($this, 'shortcodes'));
     $this->metabox();
   }
@@ -53,10 +55,38 @@ class Service_Content_Type {
       'has_archive' => true,
       'hierarchical' => false,
       'menu_position' => null,
+      'show_in_nav_menus' => FALSE,
       'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
       'menu_icon' => DRJOSEPH_THEME_URL . '/images/icon-service.png'
     );
     register_post_type($this->post_type, $service_arg);
+  }
+
+  public function taxonomies() {
+    $labels = array(
+      'name' => _x('Service Catalogs', 'taxonomy general name'),
+      'singular_name' => _x('Catalog', 'taxonomy singular name'),
+      'search_items' => __('Search Catalogs'),
+      'all_items' => __('All Catalogs'),
+      'parent_item' => __('Parent Catalog'),
+      'parent_item_colon' => __('Parent Catalog:'),
+      'edit_item' => __('Edit Catalog'),
+      'update_item' => __('Update Catalog'),
+      'add_new_item' => __('Add New Catalog'),
+      'new_item_name' => __('New Catalog Name'),
+      'menu_name' => __('Catalog'),
+    );
+
+    $args = array(
+      'hierarchical' => true,
+      'labels' => $labels,
+      'show_ui' => true,
+      'show_admin_column' => true,
+      'query_var' => true,
+      'rewrite' => array('slug' => $this->taxonomy),
+    );
+
+    register_taxonomy($this->taxonomy, $this->post_type, $args);
   }
 
   public function shortcodes($attrs, $content) {
@@ -118,31 +148,31 @@ class Service_Content_Type {
 
 new Service_Content_Type();
 
-function get_drjosefh_services($args=array()){
+function get_drjosefh_services($args = array()) {
   $defaults = array(
-    'post_type'=>'drjosefh_service',
+    'post_type' => 'drjosefh_service',
     'orderby' => 'meta_value_num',
-    'order'   => 'ASC',
-    'meta_key'  => 'custom_order',
+    'order' => 'ASC',
+    'meta_key' => 'custom_order',
     'posts_per_page' => -1,
-    );
-  $args = wp_parse_args( $args, $defaults );
+  );
+  $args = wp_parse_args($args, $defaults);
   $services_query = get_posts($args);
   $services_data = array();
-  if(!empty($services_query)){
-    foreach($services_query as $key=>$service){
+  if (!empty($services_query)) {
+    foreach ($services_query as $key => $service) {
       $sdata = new stdClass();
       $sdata->title = $service->post_title;
       $sdata->excerpt = $service->post_excerpt;
       $sdata->content = $service->post_content;
       $sdata->url = get_the_permalink($service->ID);
       $icon_att_id = get_field('icon', $service->ID);
-      $sdata->icon = wp_get_attachment_url( $icon_att_id );
+      $sdata->icon = wp_get_attachment_url($icon_att_id);
       $attchment = get_post_thumbnail_id($service->ID, 'full');
-      $sdata->img = wp_get_attachment_url( $attchment );      
-      $services_data[$key]= $sdata;
+      $sdata->img = wp_get_attachment_url($attchment);
+      $services_data[$key] = $sdata;
     }
   }
   wpprint($services_data);
-return $services_data;
+  return $services_data;
 }

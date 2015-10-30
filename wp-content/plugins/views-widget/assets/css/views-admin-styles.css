@@ -1,0 +1,56 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 4, 2015, 2:58:28 PM
+    Author     : Anup
+*/
+
+/*Widgets*/
+.views_widget{
+    margin-top: 10px;
+}
+.views .ui-widget {	
+    margin-bottom: 15px;
+}
+.views_widget .form-items{}
+.views_widget .form-items label{
+    line-height: 30px;
+    font-weight: bold;
+    padding-right: 20px;
+}
+.views_widget .form-items label.ajax-called{
+    background: url(../images/ajax-loader.gif) right center no-repeat;
+}
+.views_widget .short-views > li{
+    padding: 8px 16px 8px 8px;
+    position: relative;
+    border: 1px dashed #eee;
+    cursor: move;
+}
+.views_widget .short-views > li:hover{
+    background: rgba(0,0,0,.1);
+   
+}
+.views_widget .short-views > li.ui-sortable-helper{
+    background: rgba(0,0,0,.4);
+     color:#000;
+}
+.views_widget .short-views > li:after{
+    content: "\f07d";
+    display: inline-block;    
+    font-family: "FontAwesome";
+    font-size: inherit;
+    margin-top: -7px;
+    position: absolute;
+    right: 12px;
+    text-rendering: auto;
+    top: 50%;
+    color:#ccc;
+}
+.views_widget .short-views > li:hover:after,
+.views_widget .short-views > li.ui-sortable-helper:after{
+    color:#000;
+}

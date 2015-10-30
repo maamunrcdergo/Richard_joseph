@@ -1,0 +1,126 @@
+#banner{
+  &.slider{
+    .item{
+      .slider_text{
+        opacity: 0;
+        position: absolute;
+        right: 17%;
+        top: 0;
+        @include transition(all .5s);
+        z-index: 999;
+        width: 38%;
+        @media screen and (max-width: $grid-float-breakpoint) {
+          width: 70%;  
+          right: 15%;
+        }
+        @media screen and (max-width: $screen-sm) {
+          position: relative;
+          left:0;
+          right:0;
+          width:100%;
+          text-align:center;
+        }
+        .jumbotron{
+          background:none;
+          position: relative;
+          width:100%;          
+          h1{
+            font-size:30px;
+            line-height:36px;
+            text-transform:uppercase;
+            color:$main_color;
+            font-weight:600;
+          }
+          p{
+            margin-top:7px;
+            color:darken($main_color,10%);
+            font-size:20px;
+            padding:0 65px 0 0;
+            a{
+              border-radius:9999px;
+              font-size:16px;
+              padding:8px 20px;
+              border:1px solid $main_color;
+              text-shadow:none;
+              @include transition(all .5s);
+              color:$main_color;
+              &:hover{
+                background:$main_color;
+                color:lighten($main_color,100%);
+              }
+              i{
+                margin-left:10px;
+              }
+            }
+          }
+        }
+
+      }
+      &.active{
+        .slider_text{
+          opacity: 1;
+          top: 20%;
+          @media screen and (max-width: $grid-float-breakpoint) {
+            top: 5%;
+          }
+          @media screen and (max-width: $screen-sm) {
+            top: 0;
+          }
+        }
+      }
+    }
+    .carousel-control.left{
+      top:40%;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:$silver;
+      padding:15px;
+      background:$main_color;
+      opacity:.5;
+      @include transition(all .5s);
+      left:3%;
+      &:hover{
+        opacity:1;
+      }
+    }
+    .carousel-control.right{
+      top:40%;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:$silver;
+      padding:15px;
+      background:$main_color;
+      opacity:.5;
+      @include transition(all .5s);
+      right:3%;
+      &:hover{
+        opacity:1;
+      }
+    }
+    .single-slide{
+      .slider_text{
+        opacity: 1;
+      }
+      .carousel-control{
+        visibility: hidden;
+      }
+    }
+  }
+  &.innerbanner{
+    background: rgba(0, 0, 0, 0) url("../images/about_us_banner.jpg") no-repeat scroll center top;
+    margin-bottom: 70px;
+    padding: 70px 0;
+    .page-title{
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 30px;
+    margin: 0px 0 10px;
+    }
+    .sub{
+    color: rgba(0, 34, 101, 0.9);
+    font-size: 16px;
+    margin: 0px;
+    }
+  }
+}

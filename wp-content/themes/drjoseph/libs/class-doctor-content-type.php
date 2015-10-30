@@ -52,6 +52,7 @@ class Doctors_Content_Type {
       'has_archive' => true,
       'hierarchical' => false,
       'menu_position' => null,
+      'show_in_nav_menus' => FALSE,
       'supports' => array('title', 'thumbnail', 'excerpt','editor',),
       'menu_icon' => DRJOSEPH_THEME_URL . '/images/icon-doctor.png'
     );
@@ -123,7 +124,67 @@ class Doctors_Content_Type {
             'placeholder' => 'https://www.facebook.com/{profile-name}',
             'prepend' => '',
             'append' => '',
-            'formatting' => 'html',
+            'formatting' => 'none',
+            'maxlength' => '',
+          ),
+          array(
+            'key' => 'doctor_socializing_twitter',
+            'label' => 'Twitter',
+            'name' => 'twitter',
+            'type' => 'text',
+            'default_value' => '',
+            'placeholder' => 'https://twitter.com//{profile-name}',
+            'prepend' => '',
+            'append' => '',
+            'formatting' => 'none',
+            'maxlength' => '',
+          ),
+          array(
+            'key' => 'doctor_socializing_plus_google',
+            'label' => 'Google Plus',
+            'name' => 'googleplus',
+            'type' => 'text',
+            'default_value' => '',
+            'placeholder' => 'https://plus.google.com/{profile-name}',
+            'prepend' => '',
+            'append' => '',
+            'formatting' => 'none',
+            'maxlength' => '',
+          ),
+          array(
+            'key' => 'doctor_socializing_linkedin',
+            'label' => 'Linkedin',
+            'name' => 'linkedin',
+            'type' => 'text',
+            'default_value' => '',
+            'placeholder' => 'https://www.linkedin.com/{profile-name}',
+            'prepend' => '',
+            'append' => '',
+            'formatting' => 'none',
+            'maxlength' => '',
+          ),
+          array(
+            'key' => 'doctor_socializing_skype',
+            'label' => 'Skype',
+            'name' => 'skype',
+            'type' => 'text',
+            'default_value' => '',
+            'placeholder' => 'skype user name',
+            'prepend' => '',
+            'append' => '',
+            'formatting' => 'none',
+            'maxlength' => '',
+          ),
+          array(
+            'key' => 'doctor_socializing_email',
+            'label' => 'Email Address',
+            'name' => 'email',
+            'type' => 'email',
+            'default_value' => '',
+            'placeholder' => 'email address',
+            'prepend' => '',
+            'append' => '',
+            'formatting' => 'none',
             'maxlength' => '',
           ),
         ),
@@ -155,26 +216,32 @@ new Doctors_Content_Type();
 
 function get_drjosefh_doctors($args = array()) {
   $defaults = array(
-    'post_type' => 'drjosefh_slider',
+    'post_type' => 'drjosefh_doctor',
     'orderby' => 'meta_value_num',
     'order' => 'ASC',
     'meta_key' => 'custom_order',
-    'posts_per_page' => 8,
+    'posts_per_page' => -1,
   );
   $args = wp_parse_args($args, $defaults);
-  $slides_query = get_posts($args);
-  $slides_data = array();
-  if (!empty($slides_query)) {
-    foreach ($slides_query as $key => $slide) {
+  $doctors_query = get_posts($args);
+  $doctors_data = array();
+  if (!empty($doctors_query)) {
+    foreach ($doctors_query as $key => $doctor) {
       $sdata = new stdClass();
-      $sdata->title = $slide->post_title;
-      $sdata->content = $slide->post_excerpt;
-      $sdata->link_text = get_field('link_text', $slide->ID);
-      $sdata->link_url = get_field('link_url', $slide->ID);
-      $attchment = get_post_thumbnail_id($slide->ID, 'full');
+      $sdata->name = $doctor->post_title;
+      $sdata->short_bio = $doctor->post_excerpt;
+      $sdata->bio = $doctor->post_content;
+      $sdata->link = get_the_permalink($doctor->ID);      
+      $attchment = get_post_thumbnail_id($doctor->ID, 'full');
       $sdata->img = wp_get_attachment_url($attchment);
-      $slides_data[$key] = $sdata;
+      $sdata->facebook = get_field('facebook', $doctor->ID);
+      $sdata->twitter = get_field('twitter', $doctor->ID);
+      $sdata->googleplus = get_field('googleplus', $doctor->ID);
+      $sdata->linkedin = get_field('linkedin', $doctor->ID);
+      $sdata->skype = get_field('skype', $doctor->ID);
+      $sdata->email = get_field('email', $doctor->ID);
+      $doctors_data[$key] = $sdata;
     }
   }
-  return $slides_data;
+  return $doctors_data;
 }

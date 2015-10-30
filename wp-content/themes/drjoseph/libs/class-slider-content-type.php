@@ -49,9 +49,11 @@ class Sliders_Content_Type {
       'query_var' => true,
       'rewrite' => array('slug' => $this->slug),
       'capability_type' => 'post',
-      'has_archive' => true,
+      'has_archive' => false,
       'hierarchical' => false,
       'menu_position' => null,
+      'exclude_from_search' => TRUE,
+      'show_in_nav_menus' => FALSE,
       'supports' => array('title','thumbnail', 'excerpt'),
       'menu_icon'=> DRJOSEPH_THEME_URL.'/images/icon-slider.png'
     );
